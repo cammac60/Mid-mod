@@ -1,0 +1,11 @@
+.card-wrapper {
+  background-color: white;
+  border: 2px solid teal;
+  height: 200px;
+  text-align: center;
+  width: 100%;
+}
+
+#date, #time, #guests {
+  display: block;
+}
