@@ -17,4 +17,10 @@ describe('Nav', () => {
     expect(click.mock.calls.length).toEqual(1);
   });
 
+  it('should call the change method when an input value is changed', () => {
+    wrapper.find('#name').simulate('change');
+    expect(change.mock.calls.length).toEqual(1);
+  });
+
+  
 });
