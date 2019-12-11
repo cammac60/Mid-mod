@@ -10,6 +10,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  overflow-x: scroll;
   text-align: center;
 }
 
@@ -26,4 +27,8 @@
   margin-left: auto;
   margin-right: auto;
   width: 90%;
+}
+
+.resy-form {
+  width: 100%;
 }

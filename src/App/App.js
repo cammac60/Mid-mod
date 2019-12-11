@@ -27,6 +27,39 @@ class App extends Component {
     this.setState({[id]: event.target.value})
   }
 
+  handleClick = () => {
+    if (this.state.name && this.state.date && this.state.time && this.state.number) {
+      let body = {
+        name: JSON.stringify(this.state.name),
+        date: JSON.stringify(this.state.date),
+        time: JSON.stringify(this.state.time),
+        number: JSON.parse(this.state.number)
+      }
+      this.postData(body);
+    } else {
+      alert('Oops! Looks like you forgot a field');
+    }
+  }
+
+  postData = (body) => {
+    let options = {
+      method: 'POST',
+      body: JSON.stringify(body),
+      headers: {
+       'Content-Type': 'application/json'
+      }
+    };
+    fetch('http://localhost:8000/api/v1/reservations', options)
+    .then(res => res.json())
+    .then(data => this.setState({
+      name: '',
+      date: '',
+      time: '',
+      number: ''
+    }))
+    .catch(err => console.log(err))
+  }
+
   render() {
     let cards;
     if (this.state.reservations.length) {
@@ -38,7 +71,11 @@ class App extends Component {
       <div className="App">
         <h1 className='app-title'>Turing Cafe Reservations</h1>
         <div className='resy-form'>
-          <Nav {...this.state} change={this.handleChange}/>
+          <Nav
+            {...this.state}
+            change={this.handleChange}
+            click={this.handleClick}
+          />
         </div>
         <div className='resy-container'>
           {cards}
