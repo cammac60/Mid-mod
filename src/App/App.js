@@ -21,7 +21,7 @@ class App extends Component {
     let cards;
     if (this.state.reservations.length) {
       cards = this.state.reservations[0].map(res => {
-        return ( <Card name={res.name} key={res.id}/> )
+        return ( <Card {...res} key={res.id}/> )
       });
     }
     return (
