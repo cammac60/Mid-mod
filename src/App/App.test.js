@@ -4,7 +4,7 @@ import App from './App';
 import { shallow } from 'enzyme';
 
 describe('App', () => {
-  let wrapper, defaultState;
+  let wrapper, defaultState, mockEvent;
 
   beforeEach(() => {
     wrapper = shallow(<App />);
@@ -14,6 +14,12 @@ describe('App', () => {
       date: '',
       time: '',
       number: ''
+    }
+    mockEvent = {
+      target: {
+        id: 'name',
+        value: 'Boyo'
+      }
     }
   });
 
@@ -31,5 +37,9 @@ describe('App', () => {
     expect(wrapper.state()).toEqual(defaultState);
   });
 
-  
+  it('should update state when handleChange is called', () => {
+    wrapper.instance().handleChange(mockEvent);
+    expect(wrapper.state().name).toEqual(mockEvent.target.value)
+  });
+
 });
