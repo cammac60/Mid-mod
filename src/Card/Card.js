@@ -8,6 +8,7 @@ const Card = (props) => {
       <span id='date'>{props.date}</span>
       <span id='time'>{props.time}</span>
       <span id='guests'>Number of guests: {props.number}</span>
+      <button onClick={(event) => props.cancel(event)} id={props.id} className="cancel">Cancel</button>
     </div>
   )
 }

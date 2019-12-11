@@ -60,11 +60,25 @@ class App extends Component {
     .catch(err => console.log(err))
   }
 
+  cancelReservation = (event) => {
+    let url = `http://localhost:8000/api/v1/reservations/${event.target.id}`;
+    fetch(url, {
+      method: 'DELETE',
+    })
+    .then(res => res.json())
+    .then(data => this.setState({reservations: [data]}))
+    .catch(err => console.log(err))
+  }
+
   render() {
     let cards;
     if (this.state.reservations.length) {
       cards = this.state.reservations[0].map(res => {
-        return ( <Card {...res} key={res.id}/> )
+        return ( <Card
+          {...res}
+          key={res.id}
+          cancel={this.cancelReservation}
+          /> )
       });
     }
     return (
