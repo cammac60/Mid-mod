@@ -30,9 +30,9 @@ class App extends Component {
   handleClick = () => {
     if (this.state.name && this.state.date && this.state.time && this.state.number) {
       let body = {
-        name: JSON.stringify(this.state.name),
-        date: JSON.stringify(this.state.date),
-        time: JSON.stringify(this.state.time),
+        name: this.state.name,
+        date: this.state.date,
+        time: this.state.time,
         number: JSON.parse(this.state.number)
       }
       this.postData(body);
