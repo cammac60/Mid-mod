@@ -15,6 +15,7 @@
 }
 
 .app-title {
+  background-color: rgba(0, 5, 0, 0.8);
   color: teal;
   font-family: 'Pacifico', cursive;
   font-size: 50px;

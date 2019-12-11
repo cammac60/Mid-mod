@@ -5,10 +5,11 @@
   margin-bottom: 5%;
   margin-left: auto;
   margin-right: auto;
-  width: 80%;
+  width: 70%;
 }
 
 input, .form-submit {
+  font-size: 1rem;
   width: 150px;
 }
 
@@ -18,5 +19,14 @@ input, .form-submit {
 
 input {
   border: 2px solid teal;
-  font-size: 1rem;
+}
+
+button {
+  background-color: teal;
+  color: white;
+  outline: none;
+}
+
+button:active {
+  background-color: black;
 }
